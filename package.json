@@ -1,0 +1,28 @@
+{
+  "name": "larypiebot",
+  "version": "0.1.0",
+  "description": "A discord bot called Larpie",
+  "main": "larypiebot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MichaelLeonffu/LarypieBot.git"
+  },
+  "keywords": [
+    "Discord",
+    "Bot",
+    "Larypie"
+  ],
+  "author": "Michael Leonffu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MichaelLeonffu/LarypieBot/issues"
+  },
+  "homepage": "https://github.com/MichaelLeonffu/LarypieBot#readme",
+  "dependencies": {
+    "discord.js": "^11.1.0",
+    "mongodb": "^2.2.30"
+  }
+}
