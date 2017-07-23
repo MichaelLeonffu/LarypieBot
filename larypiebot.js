@@ -16,8 +16,6 @@ client.on('message', msg => {
 		assert.equal(null, err);
 		var collection = db.collection('todo');
 
-
-
 		switch (msg.content.toLowerCase()) {
 			case 'l!todo':
 				collection.aggregate([
@@ -37,9 +35,29 @@ client.on('message', msg => {
 				console.log('did not detect message')
 				break;
 		}
-		if (msg.content === 'ping') {
+		if (msg.content.toLowerCase() === 'ping') {
+			console.log('detected ping yay')
 			msg.reply('Pong!')
+			msg.delete(5000)
+			console.log('detleted pong')
 		}
+
+		if (msg.content.toLowerCase().includes('Pong!')) {
+			console.log('DETECTED PONG',msg.content.toLowerCase())
+			msg.delete(1000)
+		}
+
+		// console.log('msg', msg)
+		// var toLog = msg.constructor
+		// console.log('msgpart', toLog)
+		// console.log('typeof', typeof toLog)
+
+		// db.collection('msg').insertOne({'message':msg},
+		// 	function(err, result){ 
+		// 		assert.equal(err, null)
+		// 		console.log("Inserting doc")
+		// 	}
+		// )
 
 		var message = msg.content.toLowerCase()
 		console.log(message)
