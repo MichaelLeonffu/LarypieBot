@@ -5,6 +5,8 @@ var MongoClient = require('mongodb').MongoClient
 var assert = require('assert');
 var url = 'mongodb://localhost/larypieBot';
 
+var config = require('./config.json');
+
 client.on('ready', () => {
 	console.log(`Logged in as ${client.user.tag}!`)
 })
@@ -47,18 +49,6 @@ client.on('message', msg => {
 			msg.delete(1000)
 		}
 
-		// console.log('msg', msg)
-		// var toLog = msg.constructor
-		// console.log('msgpart', toLog)
-		// console.log('typeof', typeof toLog)
-
-		// db.collection('msg').insertOne({'message':msg},
-		// 	function(err, result){ 
-		// 		assert.equal(err, null)
-		// 		console.log("Inserting doc")
-		// 	}
-		// )
-
 		var message = msg.content.toLowerCase()
 		console.log(message)
 		if(message.includes('l!addtodo ')){
@@ -83,4 +73,4 @@ client.on('message', msg => {
 	});
 })
 
-client.login('MTg5OTI3NDMxNDMwMzQwNjA4.DFSUDw.V9cceJnk9HCpAr4V6uSIdqB_w-4');
+client.login(config.TOKEN);
