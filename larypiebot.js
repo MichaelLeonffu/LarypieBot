@@ -39,14 +39,13 @@ client.on('message', msg => {
 		}
 		if (msg.content.toLowerCase() === 'ping') {
 			console.log('detected ping yay')
-			msg.reply('Pong!')
-			msg.delete(5000)
-			console.log('detleted pong')
-		}
-
-		if (msg.content.toLowerCase().includes('Pong!')) {
-			console.log('DETECTED PONG',msg.content.toLowerCase())
-			msg.delete(1000)
+			let start = msg.createdTimestamp;
+    			msg.channel.send("p0nG!")
+      			.then(message => {
+        		let diff = (message.createdTimestamp - start);
+        		message.edit("pONg \`in " + diff + "ms uwu`");
+      })
+      .catch(console.error);
 		}
 
 		var message = msg.content.toLowerCase()
